@@ -1,21 +1,14 @@
-import React from "react"
-import './App.css'
-import { BrowserRouter, Route, Routes } from "react-router-dom"
-import { RecoilRoot } from "recoil"
-import SignIn from "./pages/sign/SignIn"
-import SignUp from "./pages/sign/SignUp";
-import Main from "./pages/main/Main";
+import React from "react";
+import "./App.css";
+import { RecoilRoot } from "recoil";
+import Auth from "./components/auth/Auth.jsx";
+import Router from "./components/router/Router.jsx";
 
 export default function App() {
   return (
-      <RecoilRoot>
-          <BrowserRouter>
-              <Routes>
-                  <Route path="/" element={<Main />} />
-                  <Route path="/sign-in" element={<SignIn />} />
-                  <Route path="/sign-up" element={<SignUp />} />
-              </Routes>
-          </BrowserRouter>
-      </RecoilRoot>
-  )
+    <RecoilRoot>
+      <Router />
+      <Auth />
+    </RecoilRoot>
+  );
 }
