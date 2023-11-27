@@ -4,6 +4,7 @@ import { memberApi } from "../../../apis/api/member/memberApi.jsx";
 import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 import { authState } from "../../../recoil/atoms/auth/authState.jsx";
+import SignInput from "../../../components/sign/SignInput.jsx";
 
 export default function SignUp() {
   const [signForm, setSignForm] = useState({
@@ -22,7 +23,6 @@ export default function SignUp() {
     if (authentication) {
       return navigate("/");
     }
-    navigate("/sign/in");
   }, [authentication]);
 
   const handleNameChange = (e) => {
@@ -99,19 +99,19 @@ export default function SignUp() {
       <SignInFormContainer onSubmit={signUp}>
         <SignInTitle>회원가입</SignInTitle>
         <SignInForm>
-          <SignInInput
+          <SignInput
             type="text"
             name="name"
-            ref={nameRef}
+            forwardedRef={nameRef}
             value={signForm.name}
             onChange={handleNameChange}
             placeholder="이름"
           />
           <EmailInputWrapper>
-            <SignInInput
+            <SignInput
               type="email"
               name="email"
-              ref={emailRef}
+              forwardedRef={emailRef}
               value={signForm.email}
               onChange={handleEmailChange}
               placeholder="이메일"
@@ -124,10 +124,10 @@ export default function SignUp() {
               {isEmailCheck ? "완료" : "확인"}
             </SignInButton>
           </EmailInputWrapper>
-          <SignInInput
+          <SignInput
             type="password"
             name="password"
-            ref={passwordRef}
+            forwardedRef={passwordRef}
             value={signForm.password}
             onChange={handlePasswordChange}
             placeholder="비밀번호"
@@ -165,14 +165,6 @@ const SignInTitle = styled.h2`
 const SignInForm = styled.form`
   display: flex;
   flex-direction: column;
-`;
-
-const SignInInput = styled.input`
-  margin-bottom: 15px;
-  padding: 10px;
-  border: 1px solid #c2c2c2;
-  border-radius: 4px;
-  font-size: 16px;
 `;
 
 const SignInButton = styled.button`

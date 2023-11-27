@@ -18,7 +18,7 @@ export default function TopBar() {
     <TopBarWrapper>
       <TopBarTitle>97</TopBarTitle>
       <TopBarMenu>
-        <TopBarLink to="/sign/up">게시판</TopBarLink>
+        <TopBarLink to="/board/list">게시판</TopBarLink>
         {authentication ? (
           <TopBarLink onClick={signOut} to="#">
             로그아웃

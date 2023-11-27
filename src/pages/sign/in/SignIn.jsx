@@ -4,7 +4,7 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { authState } from "../../../recoil/atoms/auth/authState.jsx";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import SignInput from "../../../components/sign/SignInput.js";
+import SignInput from "../../../components/sign/SignInput.jsx";
 
 export default function SignIn() {
   const [signForm, setSignForm] = useState({
